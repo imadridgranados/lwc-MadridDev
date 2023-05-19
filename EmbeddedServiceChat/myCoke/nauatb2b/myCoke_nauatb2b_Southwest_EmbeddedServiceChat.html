@@ -1,41 +1,49 @@
 <html>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = false; //true or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+    <script type='text/javascript'>
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = false; //true or false
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
+            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 
-		embedded_svc.init(
-			initEmbeddedBaseUrl,
-			initStoreURL,
-			gslbBaseURL,
-			'00D8H0000004gp7',//Raul to fill
-			'myCoke_Chat_Southwest',//Raul to fill
-			{
-				baseLiveAgentContentURL: 'https://c.la5-c1cs-ia4.salesforceliveagent.com/content',//Raul to fill
-				deploymentId: '572G0000000PW7y',//Raul to fill
-				buttonId: '573G0000000PWzm',//Raul to fill
-				baseLiveAgentURL: 'https://d.la5-c1cs-ia4.salesforceliveagent.com/chat',//Raul to fill
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I290000008Oh0EAE_170a7c062be',//Raul to fill
-				isOfflineSupportEnabled: false
-			}
-		);
-	};
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://nasales--nauatb2b.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');//Raul to fill
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
+            embedded_svc.init(
+                initEmbeddedBaseUrl,
+                initStoreURL,
+                gslbBaseURL,
+                cocaColaRefreshmentsID,
+                snapInName,
+                {
+                    baseLiveAgentContentURL: liveChatSrc //need update
+                    deploymentId: myCokeLiveChatDeployID,
+                    buttonId: liveChatId,
+                    baseLiveAgentURL: baseLiveAgentURL, //need update
+                    eswLiveAgentDevName: eswLiveAgentName,
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', srcEmbeddedService); //need update
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+
+    //Aditional comments
+    /*
+    *To start a chat you need to execute the following command on the navigator console
+    *embedded_svc.liveAgentAPI.startChat()
+    */
+    
+    </script>
 <html/>
